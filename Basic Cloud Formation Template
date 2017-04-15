@@ -1,0 +1,28 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "Template to create ec2 instance and s3 bucket",
+
+	"Resources": {
+		"S3Bucket": {
+			"Type": "AWS::S3::Bucket",
+			"Properties": {
+				"AccessControl": "PublicRead",
+				"BucketName": "<bucket_name>"
+			}
+		},
+
+		"Ec2Instance": {
+			"Type": "AWS::EC2::Instance",
+			"Properties": {
+				"ImageId": "<ami-id>",
+				"InstanceType": "t2.micro"
+			}
+		}
+	}
+}
+
+
+* Note:-
+  You need to mention your bucket name replacing <bucket_name> to some unique name. example:- "jump012" etc.
+  Also, you need to check the ImageId of for your instance by logging into your amazon accout and from EC2 service you'll
+  get free tier ami id. example:- "ami-22ce4934" etc.
